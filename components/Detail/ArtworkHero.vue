@@ -1,16 +1,20 @@
 <template>
   <transition name="fade">
-    <div class='photo' v-if='imageLoaded' :style='{backgroundImage: `url(/artworks/noses/${this.artwork.slug.toUpperCase()}.jpg)`}'></div>
+    <div class='photo' v-if='imageLoaded' :style='{backgroundImage: `url(${imageUrl})`}'></div>
     <div class='fake-photo' v-else></div>
   </transition>
 </template>
 
 <script>
 export default {
-  props: ['artwork'],
+  props: ['artwork', 'production'],
   computed: {
     imageUrl() {
-      return `/artworks/noses/${this.artwork.slug.toUpperCase()}.jpg`
+    let folder = ''
+      if(this.production) {
+        folder = '/manolo/'
+      }
+      return `${folder}/artworks/noses/${this.artwork.slug.toUpperCase()}.jpg`
     }
   },
   data() {
@@ -20,7 +24,6 @@ export default {
   },
   mounted() {
     var newImg = new Image
-    console.log(this)
     newImg.onload = () => {
       this.imageLoaded = true
     }

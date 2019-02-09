@@ -1,6 +1,6 @@
 <template>
   <section class="container">
-    <artwork-hero :artwork='this.artwork'></artwork-hero>
+    <artwork-hero :artwork='this.artwork' :production='production'></artwork-hero>
   </section>
 </template>
 
@@ -12,12 +12,13 @@ import ArtworkHero from '~/components/Detail/ArtworkHero'
 
 export default {
   components: { ArtworkHero },
-  asyncData ({ params, store }) {
+  asyncData ({ params, store, isDev }) {
     const artwork = find(data.artworks, (el) => el.slug == params.slug)
     store.commit('setBackgroundColor', artwork.backgroundColor)
 
     return {
-      artwork: artwork
+      artwork: artwork,
+      production: !isDev
     }
   }
 
