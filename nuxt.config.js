@@ -18,6 +18,12 @@ const routerBase = process.env.DEPLOY_ENV === 'GH_PAGES' ? {
   }
 } : {}
 
+const routes = _.map(data.artworks, (artwork) => {
+  return `/artworks/${artwork.slug}`
+})
+
+console.log(routes)
+
 module.exports = {
   mode: 'universal',
 
@@ -44,9 +50,7 @@ module.exports = {
   loading: { color: '#FFFFFF' },
 
   generate: {
-   routes: _.map(data.artworks, (artwork) => {
-      return `/artworks/${artwork.slug}`
-   })
+    routes: routes
   },
 
   /*

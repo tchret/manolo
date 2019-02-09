@@ -1,6 +1,6 @@
 <template>
   <transition name="fade">
-    <div class='photo' v-if='imageLoaded' :style='{backgroundImage: `url(${imageUrl})`}'></div>
+    <div class='photo' v-if='imageLoaded' :style='{backgroundImage: `url(/artworks/noses/${this.artwork.slug.toUpperCase()}.jpg)`}'></div>
     <div class='fake-photo' v-else></div>
   </transition>
 </template>
@@ -20,6 +20,7 @@ export default {
   },
   mounted() {
     var newImg = new Image
+    console.log(this)
     newImg.onload = () => {
       this.imageLoaded = true
     }
@@ -28,7 +29,7 @@ export default {
 }
 </script>
 
-<style lang='scss'>
+<style lang='scss' scoped>
 @keyframes enter {
   to {
     opacity: 1;
@@ -39,15 +40,21 @@ export default {
   opacity: 0;
   animation: enter 2s ease-in-out forwards;
   transform: scale(.9);
+  margin: auto;
+  background-size: cover !important;
+  height: 500px;
+  width: 500px;
 }
+
 .fake-photo {
-  width: 600px;
-  height: 600px;
+  width: 500px;
+  height: 500px;
+  margin: auto;
   position: relative;
   &:after {
     content: '';
-    height: 400px;
-    width: 400px;
+    height: 300px;
+    width: 300px;
     border-radius: 50%;
     background: rgba(white, .05);
     position: absolute;

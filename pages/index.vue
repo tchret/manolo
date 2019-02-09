@@ -14,7 +14,7 @@ export default {
   },
   mounted() {
     const randomArtwork = sample(data.artworks)
-    window.location.replace(`/artworks/${randomArtwork.slug}`);
+    window.location.replace(`${document.URL}artworks/${randomArtwork.slug}`);
   }
 
 }

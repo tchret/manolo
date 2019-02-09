@@ -30,10 +30,4 @@ export default {
   margin: auto;
   padding-top: $spacing * 8;
 }
-.photo {
-  height: 600px;
-  width: 600px;
-  background-size: cover;
-  margin: auto;
-}
 </style>
