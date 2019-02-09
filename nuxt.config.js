@@ -11,8 +11,17 @@ try {
   console.log(e)
 }
 
+const base = process.env.DEPLOY_ENV === 'GH_PAGES' ? '/manolo/' : '';
+const routerBase = process.env.DEPLOY_ENV === 'GH_PAGES' ? {
+  router: {
+    base: base
+  }
+} : {}
+
 module.exports = {
   mode: 'universal',
+
+  ...routerBase,
 
   /*
   ** Headers of the page
