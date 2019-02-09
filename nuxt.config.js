@@ -1,12 +1,15 @@
 const pkg = require('./package')
 const resolve = require('path').resolve
+const _ = require('lodash')
+let data = []
 
-const base = process.env.DEPLOY_ENV === 'GH_PAGES' ? '/manolo/' : '';
-const routerBase = process.env.DEPLOY_ENV === 'GH_PAGES' ? {
-  router: {
-    base: base
-  }
-} : {}
+yaml = require('js-yaml');
+fs   = require('fs');
+try {
+  data = yaml.safeLoad(fs.readFileSync('./assets/data.yml', 'utf8'));
+} catch (e) {
+  console.log(e)
+}
 
 module.exports = {
   mode: 'universal',
@@ -29,7 +32,13 @@ module.exports = {
   /*
   ** Customize the progress-bar color
   */
-  loading: { color: '#3B8070' },
+  loading: { color: '#FFFFFF' },
+
+  generate: {
+   routes: _.map(data.artworks, (artwork) => {
+      return `/artworks/${artwork.slug}`
+   })
+  },
 
   /*
   ** Global CSS
@@ -59,7 +68,12 @@ module.exports = {
     */
     extend(config, ctx) {
       // Run ESLint on save
+      config.module.rules.push({
+        test: /\.ya?ml$/,
+        use: 'js-yaml-loader'
+      })
       if (ctx.isDev && ctx.isClient) {
+
         config.module.rules.push({
           enforce: 'pre',
           test: /\.(js|vue)$/,

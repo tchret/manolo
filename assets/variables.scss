@@ -1,0 +1,19 @@
+@font-face {
+  font-family: "Aeroport";
+  src: url("~/static/fonts/Aeroport.eot") format("eot"),
+     url("~/static/fonts/Aeroport.woff") format("woff"),
+     url("~/static/fonts/Aeroport.woff2") format("woff2");
+
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: "Aeroport";
+  src: url("~/static/fonts/Aeroport-Medium.eot") format("eot"),
+     url("~/static/fonts/Aeroport-Medium.woff") format("woff"),
+     url("~/static/fonts/Aeroport-Medium.woff2") format("woff2");
+  font-weight: 500;
+}
+
+
+$spacing: 8px;

@@ -1,10 +1,20 @@
 <template>
-  <div>
+  <div class='site' :style='{backgroundColor: this.$store.state.backgroundColor}'>
     <nuxt/>
   </div>
 </template>
 
+<script>
+  export default {
+    mounted() {
+    }
+  }
+</script>
+
 <style>
+.site {
+  min-height: 100vh;
+}
 html
 {
   font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
@@ -15,6 +25,8 @@ html
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   box-sizing: border-box;
+  background: black;
+  color: white;
 }
 *, *:before, *:after
 {

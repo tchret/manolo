@@ -1,28 +1,22 @@
 <template>
   <section class="container">
-    <div>
-      <logo/>
-      <h1 class="title">
-        manolo
-      </h1>
-      <h2 class="subtitle">
-        Manolo&#39;s website
-      </h2>
-      <div class="links">
-        <a href="https://nuxtjs.org/" target="_blank" class="button--green">Documentation</a>
-        <a href="https://github.com/nuxt/nuxt.js" target="_blank" class="button--grey">GitHub</a>
-      </div>
-    </div>
   </section>
 </template>
 
 <script>
 import Logo from '~/components/Logo.vue'
+import data from '~/assets/data.yml'
+import { sample } from 'lodash'
 
 export default {
   components: {
     Logo
+  },
+  mounted() {
+    const randomArtwork = sample(data.artworks)
+    window.location.replace(`/artworks/${randomArtwork.slug}`);
   }
+
 }
 </script>
 
@@ -34,6 +28,7 @@ export default {
   justify-content: center;
   align-items: center;
   text-align: center;
+  margin: auto;
 }
 .title
 {
