@@ -14,7 +14,7 @@ export default {
   },
   mounted() {
     const randomArtwork = sample(data.artworks)
-    window.location.replace(`${document.URL}artworks/${randomArtwork.slug}`);
+    window.location.replace(`${location.protocol + '//' + location.host + location.pathname}artworks/${randomArtwork.slug}`);
   }
 
 }
@@ -28,7 +28,7 @@ export default {
   justify-content: center;
   align-items: center;
   text-align: center;
-  margin: auto;
+   margin: auto;
 }
 .title
 {
