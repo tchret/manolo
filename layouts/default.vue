@@ -1,13 +1,14 @@
 <template>
   <div class='site'>
+    <navbar></navbar>
     <nuxt/>
   </div>
 </template>
 
 <script>
+  import Navbar from '../components/Navbar'
   export default {
-    mounted() {
-    }
+    components: { Navbar }
   }
 </script>
 

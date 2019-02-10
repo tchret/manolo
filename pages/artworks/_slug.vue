@@ -76,6 +76,7 @@ export default {
   max-width: 600px + ($spacing * 2);
   margin: auto;
   padding: 0 $spacing * 2;
+  padding-top: $spacing * 4;
 }
 
 .header {
