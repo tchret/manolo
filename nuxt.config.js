@@ -81,10 +81,15 @@ module.exports = {
     */
     extend(config, ctx) {
       // Run ESLint on save
+      config.node = {
+        fs: "empty"
+      }
+
       config.module.rules.push({
         test: /\.ya?ml$/,
         use: 'js-yaml-loader'
       })
+
       if (ctx.isDev && ctx.isClient) {
 
         config.module.rules.push({

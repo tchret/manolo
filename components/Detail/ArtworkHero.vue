@@ -1,34 +1,17 @@
 <template>
   <transition name="fade">
     <div class='photo' v-if='imageLoaded' :style='{backgroundImage: `url(${imageUrl})`}'></div>
-    <div class='fake-photo' v-else></div>
+    <div class='fake-photo' v-else>
+      <loader></loader>
+    </div>
   </transition>
 </template>
 
 <script>
+import Loader from '~/components/Loader'
 export default {
-  props: ['artwork', 'production'],
-  computed: {
-    imageUrl() {
-    let folder = ''
-      if(this.production) {
-        folder = '/manolo/'
-      }
-      return `${folder}/artworks/noses/${this.artwork.slug.toUpperCase()}.jpg`
-    }
-  },
-  data() {
-    return {
-      imageLoaded: false
-    }
-  },
-  mounted() {
-    var newImg = new Image
-    newImg.onload = () => {
-      this.imageLoaded = true
-    }
-    newImg.src = this.imageUrl
-  }
+  components: { Loader },
+  props: ['imageUrl', 'imageLoaded'],
 }
 </script>
 
@@ -41,27 +24,30 @@ export default {
 }
 .photo {
   opacity: 0;
-  animation: enter 2s ease-in-out forwards;
+  animation: enter 1s ease-in-out forwards;
   transform: scale(.9);
   margin: auto;
   background-size: cover !important;
-  height: 500px;
-  width: 500px;
+  max-width: 520px;
+  &:after {
+    content: "";
+    display: block;
+    padding-bottom: 100%;
+  }
 }
 
 .fake-photo {
-  width: 500px;
-  height: 500px;
+  max-width: 520px;
+  width: 100%;
   margin: auto;
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   &:after {
-    content: '';
-    height: 300px;
-    width: 300px;
-    border-radius: 50%;
-    background: rgba(white, .05);
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0; margin: auto;
+    content: "";
+    display: block;
+    padding-bottom: 100%;
   }
 }
 </style>

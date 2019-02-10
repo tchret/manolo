@@ -14,6 +14,7 @@
     "deploy": "rm -rf dist && DEPLOY_ENV=GH_PAGES nuxt generate && push-dir --dir=dist --branch=gh-pages --cleanup --verbose"
   },
   "dependencies": {
+    "fs": "^0.0.1-security",
     "js-yaml-loader": "^1.0.1",
     "json-loader": "^0.5.7",
     "lodash": "^4.17.11",
