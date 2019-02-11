@@ -1,11 +1,11 @@
 <template>
-  <svg width="86px" height="86px" viewBox="0 0 86 86" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <svg width="82px" height="82px" viewBox="0 0 82 82" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
       <!-- Generator: Sketch 51.3 (57544) - http://www.bohemiancoding.com/sketch -->
-      <title>0</title>
+      <title>1</title>
       <desc>Created with Sketch.</desc>
       <defs></defs>
-      <g id="0" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" fill-opacity="0.2">
-          <circle id="Oval" fill="#FFFFFF" cx="42.6875" cy="42.6875" r="23.9375"></circle>
+      <g id="1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" fill-opacity="0.2">
+          <path d="M50.96025,31.845375 L50.9625,31.845375 C49.836375,31.102875 49.845375,31.338 49.867875,30.48525 C50.137875,20.480625 43.887375,17.775 40.4775,17.775 C37.067625,17.775 30.81825,20.480625 31.087125,30.48525 C31.11075,31.336875 31.098375,31.23225 29.97225,31.973625 L29.982375,31.973625 C25.842375,34.639875 23.175,38.9745 23.175,44.37225 C23.175,53.332875 30.526875,61.486875 39.7575,61.94475 C40.07475,61.97175 40.075875,62.249625 40.075875,62.249625 L40.075875,62.715375 C40.075875,63.09225 40.38075,63.397125 40.757625,63.397125 C41.1345,63.397125 41.439375,63.09225 41.439375,62.715375 L41.439375,62.193375 C41.439375,62.193375 41.4,61.92225 41.758875,61.92225 C50.814,61.26975 57.97125,53.213625 57.97125,44.37225 C57.972375,38.887875 55.216125,34.500375 50.96025,31.845375 Z" id="Shape" fill="#FFFFFF"></path>
       </g>
   </svg>
 </template>

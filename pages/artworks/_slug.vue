@@ -1,10 +1,20 @@
 <template>
   <div>
     <section class="container">
-      <artwork-hero
-        :imageUrl='this.imageUrl'
-        :imageLoaded='this.imageLoaded'
-      ></artwork-hero>
+      <div class='hero'>
+        <div class='arrows'>
+          <nuxt-link class='arrow-left'  :to="prevUrl">
+            <chevron-left-icon></chevron-left-icon>
+          </nuxt-link>
+          <nuxt-link class='arrow-right' :to="nextUrl">
+            <chevron-right-icon></chevron-right-icon>
+          </nuxt-link>
+        </div>
+        <artwork-hero
+          :imageUrl='this.imageUrl'
+          :imageLoaded='this.imageLoaded'
+        ></artwork-hero>
+      </div>
       <div class='header'>
         <h1 class='title'>
           {{this.artwork.title}}
@@ -16,22 +26,24 @@
         {{description}}
       </div>
     </section>
-    <artwork-preview
+    <gallery
       :imageUrl='this.imageUrl'
       :imageLoaded='this.imageLoaded'
-    ></artwork-preview>
+    ></gallery>
   </div>
 </template>
 
 <script>
+import { ChevronLeftIcon, ChevronRightIcon } from 'vue-feather-icons'
 import data from '~/assets/data.yml'
-import { find } from 'lodash'
+import { find, findIndex } from 'lodash'
 import { mapMutations } from 'vuex'
 import ArtworkHero from '~/components/Detail/ArtworkHero'
-import ArtworkPreview from '~/components/Detail/ArtworkPreview'
+import Gallery from '~/components/Detail/Gallery'
+const baseUrl = '/artworks/'
 
 export default {
-  components: { ArtworkHero, ArtworkPreview },
+  components: { ArtworkHero, Gallery, ChevronLeftIcon, ChevronRightIcon },
   asyncData ({ params, store, isDev }) {
     const artwork = find(data.artworks, (el) => el.slug == params.slug)
     store.commit('setBackgroundColor', artwork.backgroundColor)
@@ -52,6 +64,26 @@ export default {
     },
     description() {
       return this.artwork.description.trim()
+    },
+    index() {
+      return findIndex(data.artworks, (artwork) => artwork.slug == this.artwork.slug)
+    },
+    nextUrl() {
+      if(!data.artworks[this.index + 1]) {
+        return baseUrl + data.artworks[0].slug
+      } else {
+        return baseUrl + data.artworks[this.index + 1].slug
+      }
+    },
+    prevUrl() {
+      if(!data.artworks[this.index - 1]) {
+        return baseUrl + data.artworks[data.artworks.length - 1].slug
+      } else {
+        return baseUrl + data.artworks[this.index - 1].slug
+      }
+    },
+    debug() {
+      return data.artworks[this.index + 1]
     }
   },
 
@@ -66,12 +98,52 @@ export default {
       this.imageLoaded = true
     }
     newImg.src = this.imageUrl
-  }
 
+    window.addEventListener('keydown', (e) => {
+        console.log(e.keyCode);
+        if(e.keyCode == 37) {
+          this.$router.push(this.prevUrl)
+        } else if (e.keyCode == 39) {
+          this.$router.push(this.nextUrl)
+        }
+    });
+  }
 }
 </script>
 
 <style lang='scss' scoped>
+.hero {
+  position: relative;
+
+  .arrows {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    height: 30px;
+    z-index: 2;
+    left: -100px;
+    right: -100px;
+
+    .arrow-right {
+      float: right;
+    }
+
+    svg {
+      width: 80px;
+      height: 80px;
+      stroke-width: .6;
+      stroke: white;
+      opacity: .6;
+
+      &:hover {
+        opacity: .8;
+      }
+    }
+  }
+}
+
+
 .container {
   max-width: 600px + ($spacing * 2);
   margin: auto;

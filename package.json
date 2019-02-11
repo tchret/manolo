@@ -21,6 +21,7 @@
     "nuxt": "^1.0.0",
     "nuxt-sass-resources-loader": "^2.0.5",
     "push-dir": "^0.4.1",
+    "vue-feather-icons": "^4.10.0",
     "yaml-loader": "^0.5.0"
   },
   "devDependencies": {

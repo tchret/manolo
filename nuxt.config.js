@@ -22,8 +22,6 @@ const routes = _.map(data.artworks, (artwork) => {
   return `/artworks/${artwork.slug}`
 })
 
-console.log(routes)
-
 module.exports = {
   mode: 'universal',
 

@@ -19,8 +19,8 @@
     top: 0;
     padding: $spacing * 2;
     & /deep/ svg {
-      height: 32px;
-      width: 75px;
+      height: 46px;
+      width: 46px;
     }
   }
 </style>
