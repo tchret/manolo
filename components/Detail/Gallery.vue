@@ -48,6 +48,7 @@
   align-items: center;
   justify-content: center;
   position: relative;
+  margin: auto;
   .photo {
     position: absolute;
     top: 0;
