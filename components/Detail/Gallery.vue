@@ -1,10 +1,10 @@
 <template>
-<div class='wall'>
+<div class='wall' :style='{backgroundImage: `url(${baseFolder}/gallery_wall/1.jpg)`}'>
   <div class='artwork' >
     <div class='photo' v-if='imageLoaded' :style='{backgroundImage: `url(${imageUrl})`}'></div>
     <loader v-else></loader>
   </div>
-  <img class='person' src='/person/1.png'>
+  <img class='person' :src='`${baseFolder}/person/1.png`'>
 </div>
 </template>
 
@@ -12,14 +12,22 @@
   import Loader from '../Loader'
   export default {
     components: { Loader },
-    props: ['imageLoaded', 'imageUrl']
+    props: ['imageLoaded', 'imageUrl', 'production'],
+    computed: {
+      baseFolder() {
+        if(this.production) {
+          return '/manolo'
+        } else {
+          return ''
+        }
+      }
+    }
   }
 </script>
 
 <style lang='scss' scoped>
 
 .wall {
-  background: url(/gallery_wall/1.jpg);
   background-size: cover;
   height: 500px;
   margin-top: $spacing * 20;
@@ -28,6 +36,7 @@
   align-items: center;
   overflow: hidden;
   position: relative;
+  background-position: center center;
 }
 
 .artwork {

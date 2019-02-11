@@ -28,6 +28,7 @@
     </section>
     <gallery
       :imageUrl='this.imageUrl'
+      :production='this.production'
       :imageLoaded='this.imageLoaded'
     ></gallery>
   </div>
@@ -120,10 +121,15 @@ export default {
     top: 0;
     bottom: 0;
     margin: auto;
-    height: 30px;
+    height: 80px;
     z-index: 2;
     left: -100px;
     right: -100px;
+
+    @media(max-width: 800px) {
+      left: -30px;
+      right: -30px;
+    }
 
     .arrow-right {
       float: right;
