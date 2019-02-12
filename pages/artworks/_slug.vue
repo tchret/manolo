@@ -1,5 +1,6 @@
 <template>
   <div>
+    <div class='top'>
     <section class="container">
       <div class='hero'>
         <div class='arrows'>
@@ -26,11 +27,19 @@
         {{description}}
       </div>
     </section>
-    <gallery
-      :imageUrl='this.imageUrl'
-      :production='this.production'
-      :imageLoaded='this.imageLoaded'
-    ></gallery>
+    </div>
+    <div class='trigger' v-observe-visibility="triggerVisibilityChanged">
+    </div>
+    <div class='fixed'>
+      <gallery
+        :imageUrl='this.imageUrl'
+        :production='this.production'
+        :imageLoaded='this.imageLoaded'
+        :artwork='this.artwork'
+        :visible='this.galleryVisible'
+        :sizes='sizes'
+      ></gallery>
+    </div>
   </div>
 </template>
 
@@ -51,7 +60,8 @@ export default {
 
     return {
       artwork: artwork,
-      production: !isDev
+      production: !isDev,
+      sizes: data.sizes
     }
   },
 
@@ -90,7 +100,13 @@ export default {
 
   data() {
     return {
-      imageLoaded: false
+      imageLoaded: false,
+      galleryVisible: false
+    }
+  },
+  methods: {
+    triggerVisibilityChanged(isVisible, entry) {
+      this.galleryVisible = isVisible
     }
   },
   mounted() {
@@ -113,6 +129,24 @@ export default {
 </script>
 
 <style lang='scss' scoped>
+
+.top {
+  position: relative;
+  background: black;
+  z-index: 999;
+  padding-bottom: 20 * $spacing;
+  box-shadow: 0px 0px 100px 100px black;
+}
+
+.trigger {
+  height: 500px;
+}
+.fixed {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
 .hero {
   position: relative;
 
