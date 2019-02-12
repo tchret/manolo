@@ -17,7 +17,7 @@
         :to='`/artworks/${artwork.slug}`'
         :key='i'
       >
-        <artwork-item v-bind='artwork'></artwork-item>
+        <artwork-item v-bind='artwork' :production='production'></artwork-item>
       </nuxt-link>
     </container>
   </div>
@@ -33,7 +33,8 @@ export default {
   asyncData ({ params, store, isDev }) {
 
     return {
-      artworks: data.artworks
+      artworks: data.artworks,
+      production: !isDev
     }
   },
   data() {
