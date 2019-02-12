@@ -56,7 +56,6 @@ export default {
   components: { ArtworkHero, Gallery, ChevronLeftIcon, ChevronRightIcon },
   asyncData ({ params, store, isDev }) {
     const artwork = find(data.artworks, (el) => el.slug == params.slug)
-    store.commit('setBackgroundColor', artwork.backgroundColor)
 
     return {
       artwork: artwork,
@@ -134,12 +133,15 @@ export default {
   position: relative;
   background: black;
   z-index: 999;
-  padding-bottom: 20 * $spacing;
+  padding-bottom: 10 * $spacing;
   box-shadow: 0px 0px 100px 100px black;
 }
 
 .trigger {
-  height: 500px;
+  height: 650px;
+  @media(max-width: 600px) {
+    min-height: 100vh;
+  }
 }
 .fixed {
   position: fixed;
@@ -149,6 +151,9 @@ export default {
 }
 .hero {
   position: relative;
+  @media(max-width: 800px) {
+    overflow: hidden;
+  }
 
   .arrows {
     position: absolute;
@@ -161,8 +166,8 @@ export default {
     right: -100px;
 
     @media(max-width: 800px) {
-      left: -30px;
-      right: -30px;
+      left: -28px;
+      right: -28px;
     }
 
     .arrow-right {

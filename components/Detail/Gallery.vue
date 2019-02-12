@@ -6,7 +6,6 @@
       <div class='beta'>Manolo Chrétien, 2019</div>
     </div>
     <div class='size-switcher-container'>
-      <div class='title'>Format</div>
       <div class='size-switcher'>
         <a
           @click='previousActiveSize = i'
@@ -18,7 +17,7 @@
           <i>
             {{size.width}}
             <span>✕</span>
-            {{size.height}}
+            {{size.height}}cm
           </i>
         </a>
       </div>
@@ -63,11 +62,15 @@
   position: absolute;
   right: 0;
   bottom: 0;
+  @media(max-width: 600px) {
+    left: 0;
+    text-align: center;
+  }
 
   .title {
     font-size: 14px;
     font-weight: 500;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
     margin-left: 10px;
   }
 
@@ -80,6 +83,42 @@
     margin: -12px;
     margin-left: 12px;
     font-size: 14px;
+    position: relative;
+    &:after {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      margin: auto;
+      bottom: 40px;
+      box-shadow: 0px 0px 0px 1.5px white;
+
+      @media(max-width: 600px) {
+        content: initial;
+      }
+    }
+
+    &:nth-child(1) {
+      &:after {
+        height: 8px;
+        width: 8px;
+      }
+    }
+
+    &:nth-child(2) {
+      &:after {
+        height: 12px;
+        width: 12px;
+      }
+    }
+
+    &:nth-child(3 ) {
+      &:after {
+        height: 16px;
+        width: 16px;
+      }
+    }
+
 
     &:first-child {
       margin-left: 0;
@@ -116,7 +155,7 @@
 
 .wall {
   background-size: cover;
-  height: 450px;
+  height: 600px;
   display: flex;
   place-content: center;
   align-items: center;
@@ -125,6 +164,11 @@
   background-position: center center;
   opacity: 0;
   transition: opacity 0s ease-in-out;
+
+  @media(max-width: 600px) {
+    min-height: 100vh;
+    height: auto;
+  }
 
   &.visible {
     transition: opacity 1s ease-in-out;
@@ -135,10 +179,22 @@
 .hud {
   position: absolute;
   left: 20px; right: 20px; bottom: 20px; top: 20px;
+  z-index: 999;
+
+  @media(max-width: 600px) {
+
+  }
+
   .infos {
     position: absolute;
     bottom: 0;
     left: 0;
+    @media(max-width: 600px) {
+      bottom: 40px;
+      right: 0;
+      text-align: center;
+    }
+
 
     .alpha {
       font-size: 20px;
@@ -178,6 +234,7 @@
   &.size-1 {
     transform: scale(.6);
   }
+
   .photo {
     position: absolute;
     top: 0;
@@ -195,5 +252,9 @@
   right: 0;
   margin: auto;
   width: 250px;
+
+  @media(max-width: 600px) {
+    display: none;
+  }
 }
 </style>
