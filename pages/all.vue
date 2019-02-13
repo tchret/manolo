@@ -17,7 +17,7 @@
         :to='`/artworks/${artwork.slug}`'
         :key='i'
       >
-        <artwork-item v-bind='artwork' :production='production'></artwork-item>
+        <artwork-item :i='i' v-bind='artwork' :production='production'></artwork-item>
       </nuxt-link>
     </container>
   </div>
@@ -27,6 +27,7 @@
 import data from '~/assets/data.yml'
 import ArtworkItem from '~/components/ArtworkItem'
 import Container from '~/components/Container'
+
 
 export default {
   components: { ArtworkItem, Container },
@@ -58,7 +59,6 @@ export default {
     }
 
     .cell {
-      transition: 1s ease-in-out;
     }
   }
   .cell {
@@ -68,7 +68,7 @@ export default {
     display: flex;
     position: relative;
     opacity: .8;
-    transition: .15s ease-in-out;
+    transition: .5s ease-in-out;
 
     @media(max-width: 800px) {
       flex: 0 0 50%;
@@ -80,13 +80,6 @@ export default {
     @media(max-width: 500px) {
       flex: 0 0 100%;
     }
-    &.hovered, &:hover {
-      & /deep/ .photo {
-        transform: scale(1);
-      }
-    }
-
-
 
     &:hover {
       opacity: 1;
@@ -100,7 +93,6 @@ export default {
 
     & /deep/ .photo {
       transition: .15s ease-in-out;
-      transform: scale(1);
       position: absolute;
       top: 12px;
       left: 12px;
@@ -109,13 +101,13 @@ export default {
       background-size: cover;
 
       &:hover {
-        .title {
+        .title-container {
           opacity: 1;
           transform: translateY(0%);
         }
       }
 
-      .title {
+      .title-container {
         font-size: 14px;
         color: white;
         position: absolute;
@@ -126,6 +118,17 @@ export default {
         opacity: 0;
         transition: .15s ease-in-out;
         transform: translateY(-20%);
+        text-align: center;
+
+        span {
+          background: rgba(white, .2);
+          display: inline-block;
+          color: black;
+          line-height: 24px;
+          padding: 0 $spacing * 2;
+          color: white;
+          border-radius: 20em
+        }
       }
     }
   }

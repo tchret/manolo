@@ -25,7 +25,7 @@ export default {
 .photo {
   opacity: 0;
   animation: enter 1s ease-in-out forwards;
-  transform: scale(.9);
+  transform: scale(.96);
   margin: auto;
   background-size: cover !important;
   max-width: 520px;

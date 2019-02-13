@@ -8,9 +8,7 @@
     <div class='size-switcher-container'>
       <div class='size-switcher'>
         <a
-          @click='previousActiveSize = i'
-          @mouseenter='activeSize = i'
-          @mouseleave='activeSize = previousActiveSize'
+          @click='activeSize = i'
           :class='{active: i == activeSize}'
           v-for='(size, i) in sizes' :key='i'
         >
@@ -129,6 +127,11 @@
     &.active {
       position: relative;
       opacity: 1;
+      font-weight: 600;
+
+      &:after {
+        background: white;
+      }
 
       i:after {
         height: 3px;
@@ -162,7 +165,7 @@
   overflow: hidden;
   position: relative;
   background-position: center center;
-  opacity: 0;
+  opacity: 1;
   transition: opacity 0s ease-in-out;
 
   @media(max-width: 600px) {

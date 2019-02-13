@@ -57,6 +57,7 @@
 <style scoped lang='scss'>
 .loader /deep/ svg  {
   display: block;
+  margin: auto;
   path, ellipse {
     stroke: rgba(white, .8);
     fill: none;
