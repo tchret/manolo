@@ -44,7 +44,7 @@
 
 <style lang='scss' scoped>
   .navbar {
-    position: absolute;
+    position: fixed;
     left: 0;
     z-index: 9999;
     right: 0;
