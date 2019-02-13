@@ -111,7 +111,9 @@ export default {
   mounted() {
     var newImg = new Image
     newImg.onload = () => {
-      this.imageLoaded = true
+      setTimeout(() => {
+        this.imageLoaded = true
+      }, 300)
     }
     newImg.src = this.imageUrl
 

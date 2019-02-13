@@ -30,9 +30,11 @@
   import Xray from './Loader/Xray'
   import Zulu from './Loader/Zulu'
   import Yankee from './Loader/Yankee'
+  import { shuffle } from 'lodash'
 
 
   const components = {Alpha, Beta, Charlie, Delta, Echo, Foxtrot, Golf, Hotel, India, Juliett, Kilo, Lima, Mike, November, Oscar, Papa, Quebec, Romeo, Sierra, Tango, Uniform, Whiskey, Xray, Yankee, Zulu}
+
 
   export default {
     components: components,
@@ -40,15 +42,17 @@
       let i = 0
       setInterval(() => {
         i += 1
-        if(!Object.keys(components)[i]) {
+        if(!this.keys[i]) {
           i = 0
         }
-        this.currentComponent = Object.keys(components)[i]
-      }, 150)
+        this.currentComponent = this.keys[i]
+      }, 120)
     },
     data() {
+      const keys = shuffle(Object.keys(components))
       return {
-        currentComponent: Object.keys(components)[0],
+        keys: keys,
+        currentComponent: keys[0]
       }
     }
   }
