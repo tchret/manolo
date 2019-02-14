@@ -34,10 +34,10 @@
       newImg.onload = () => {
         this.imageLoaded = true
       }
+      newImg.src = this.imageUrl
+
       if(newImg.complete) {
         this.imageLoaded = true
-      } else {
-        newImg.src = this.imageUrl
       }
     }
   }
