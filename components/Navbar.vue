@@ -1,12 +1,12 @@
 <template>
-<div class='navbar' v-if="$nuxt.$route.name == 'all'">
+<div class='navbar' v-if="$nuxt.$route.name.includes('series')">
   <a class='index icon-left button' @click='() => this.$router.back()'>
     <arrow-left-icon class='refresh'></arrow-left-icon>
     <span>Back</span>
   </a>
   <div class='menu'>
     <a class='index button' @click='goToRandomArtwork'>
-      <span>Random</span>
+      <span>Random artwork</span>
       <refresh-cw-icon></refresh-cw-icon>
     </a>
   </div>
@@ -16,7 +16,7 @@
     <logo></logo>
   </nuxt-link>
   <div class='menu'>
-    <nuxt-link class='index button' to='/all'>
+    <nuxt-link class='index button' :to='`/series/${this.$store.state.category}`'>
       <span>Index</span>
       <menu-icon></menu-icon>
     </nuxt-link>
@@ -36,7 +36,7 @@
       goToRandomArtwork() {
          const randomArtwork = sample(data.artworks)
         // window.location.replace(`${location.protocol + '//' + location.host + location.pathname}artworks/${randomArtwork.slug}`);
-         this.$router.push(`artworks/${randomArtwork.slug}`);
+         this.$router.push(`/artworks/${randomArtwork.slug}`);
       }
     }
   }
@@ -60,7 +60,7 @@
       height: 36px;
       display: flex;
       align-items: center;
-      width: 150px;
+      min-width: 150px;
       justify-content: center;
       box-shadow: 0px 0px 0px 1.3px white;
       color: white;
@@ -68,6 +68,7 @@
       padding-left: $spacing * 1.5;
       cursor: pointer;
       transition: background .15s ease-in-out;
+      background: black;
       text-decoration: none;
 
       &:hover {
@@ -86,10 +87,15 @@
       span {
         position: relative;
         bottom: 1px;
-        margin-right: $spacing;
+        margin-right: $spacing * 2;
+
       }
       &.icon-left {
         padding-left: 5px;
+
+        span {
+          margin-right: 0;
+        }
         svg {
           margin-right: auto;
           margin-left: 0;

@@ -21,8 +21,7 @@
           {{this.artwork.title}}
         </h1>
       </div>
-      <div class='separator'>
-      </div>
+      <separator></separator>
       <div class='description'>
         {{description}}
       </div>
@@ -46,10 +45,11 @@
 <script>
 import { ChevronLeftIcon, ChevronRightIcon } from 'vue-feather-icons'
 import data from '~/assets/data.yml'
-import { find, findIndex } from 'lodash'
+import { find, findIndex, filter } from 'lodash'
 import { mapMutations } from 'vuex'
 import ArtworkHero from '~/components/Detail/ArtworkHero'
 import Gallery from '~/components/Detail/Gallery'
+import Separator from '~/components/Separator'
 const baseUrl = '/artworks/'
 
 export default {
@@ -59,6 +59,7 @@ export default {
 
     return {
       artwork: artwork,
+      artworks: filter(data.artworks, (a) => { return a.category == artwork.category } ),
       production: !isDev,
       sizes: data.sizes
     }
@@ -76,24 +77,24 @@ export default {
       return this.artwork.description.trim()
     },
     index() {
-      return findIndex(data.artworks, (artwork) => artwork.slug == this.artwork.slug)
+      return findIndex(this.artworks, (artwork) => artwork.slug == this.artwork.slug)
     },
     nextUrl() {
       if(!data.artworks[this.index + 1]) {
-        return baseUrl + data.artworks[0].slug
+        return baseUrl + this.artworks[0].slug
       } else {
-        return baseUrl + data.artworks[this.index + 1].slug
+        return baseUrl + this.artworks[this.index + 1].slug
       }
     },
     prevUrl() {
       if(!data.artworks[this.index - 1]) {
-        return baseUrl + data.artworks[data.artworks.length - 1].slug
+        return baseUrl + this.artworks[this.artworks.length - 1].slug
       } else {
-        return baseUrl + data.artworks[this.index - 1].slug
+        return baseUrl + this.artworks[this.index - 1].slug
       }
     },
     debug() {
-      return data.artworks[this.index + 1]
+      return this.artworks[this.index + 1]
     }
   },
 
@@ -211,24 +212,7 @@ export default {
   margin-bottom: -4px;
 }
 
-.separator {
-  width: 28px;
-  height: 4px;
-  margin: auto;
-  position: relative;
-  &:after {
-    content: '';
-    width: 4px;
-    position: absolute;
-    height: 4px;
-    border-radius: 50%;
-    border: none;
-    color: rgba(white, .4);
-    background: currentColor;
-    box-shadow: 12px 0px 0px currentColor, 24px 0px 0px currentColor;
-    margin: auto;
-  }
-}
+
 
 
 .description {

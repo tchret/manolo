@@ -98,15 +98,15 @@
 
     &:nth-child(1) {
       &:after {
-        height: 8px;
-        width: 8px;
+        height: 12px;
+        width: 12px;
       }
     }
 
     &:nth-child(2) {
       &:after {
-        height: 12px;
-        width: 12px;
+        height: 14px;
+        width: 14px;
       }
     }
 
@@ -213,8 +213,8 @@
 }
 
 .artwork {
-  height: 300px;
-  width: 300px;
+  height: 450px;
+  width: 450px;
   background: black;
   box-shadow: 0px 0px 1px black, 0px 8px 1px -5px rgba(black, .2);
   display: flex;
@@ -231,11 +231,11 @@
   }
 
   &.size-2 {
-    transform: scale(.8);
+    transform: scale(.77);
   }
 
   &.size-1 {
-    transform: scale(.6);
+    transform: scale(.53);
   }
 
   .photo {
@@ -250,7 +250,7 @@
 
 .person {
   position: absolute;
-  top: 170px;
+  top: 240px;
   left: -450px;
   right: 0;
   margin: auto;

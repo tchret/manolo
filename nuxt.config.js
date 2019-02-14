@@ -18,9 +18,15 @@ const routerBase = process.env.DEPLOY_ENV === 'GH_PAGES' ? {
   }
 } : {}
 
-const routes = _.map(data.artworks, (artwork) => {
+const artworkRoutes = _.map(data.artworks, (artwork) => {
   return `/artworks/${artwork.slug}`
 })
+
+const categoryRoutes = _.map(data.categories, (category) => {
+  return `/series/${category}`
+})
+
+const routes = artworkRoutes + categoryRoutes
 
 module.exports = {
   mode: 'universal',

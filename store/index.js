@@ -1,10 +1,10 @@
 export const state = () => ({
-  backgroundColor: "#000000"
+  category: 'nez'
 })
 
 export const mutations = {
-  setBackgroundColor (state, hex) {
-    state.backgroundColor = hex
+  setCategory (state, category) {
+    state.category = category
   }
 }
 

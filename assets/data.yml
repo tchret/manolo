@@ -5,8 +5,12 @@ sizes:
     height: 100
   - width: 130
     height: 130
+categories:
+  - 'nez'
+  # - 'sky'
 artworks:
   - slug: 'black-747'
+    category: 'nez'
     title: 747
     year: 1969
     description: |
@@ -16,6 +20,7 @@ artworks:
 
   - slug: 'black-777'
     title: 777
+    category: 'nez'
     year: 1994
     description: |
       Le Boeing 777 ou B777, parfois surnommé triple sept dans le milieu aérien, est un avion de ligne gros porteur, long courrier et biréacteur construit par la société Boeing depuis 1994. Entré en service en 1995, il est le plus grand biréacteur au monde, avec une capacité de 300 à 550 passagers et une distance franchissable variant de 9 695 à 17 370 km selon les modèles.
@@ -24,6 +29,7 @@ artworks:
 
   - slug: 'black-787-2'
     title: 787_2
+    category: 'nez'
     year: 2009
     description: |
       Le Boeing 787, également connu par son surnom Dreamliner, est un avion long-courrier produit depuis 2009 par Boeing. Officiellement lancé le 26 avril 2004 pour une mise en service en mai 2008, il effectue son premier vol le 15 décembre 20091 et est certifié le 26 août 2011.
@@ -33,6 +39,7 @@ artworks:
 
   - slug: 'black-787'
     title: 787
+    category: 'nez'
     year: 2009
     description: |
       Le Boeing 787, également connu par son surnom Dreamliner, est un avion long-courrier produit depuis 2009 par Boeing. Officiellement lancé le 26 avril 2004 pour une mise en service en mai 2008, il effectue son premier vol le 15 décembre 20091 et est certifié le 26 août 2011.
@@ -42,6 +49,7 @@ artworks:
 
   - slug: 'black-a300'
     title: A300
+    category: 'nez'
     year: 1972
     description: |
       L'Airbus A300 est une famille d'avions de ligne à large fuselage construits par Airbus de 1972 à 2007. L'A300 est à l'origine de la création du groupe Airbus et constitue son premier modèle commercialisé.
@@ -50,6 +58,7 @@ artworks:
 
   - slug: 'black-airbus-A380'
     title: A380
+    category: 'nez'
     year: 2005
     description: |
       L'Airbus A380 est un avion de ligne civil très gros-porteur long-courrier quadriréacteur à double pont, produit par Airbus. Il est le plus gros avion de ligne au monde. Les éléments sont fabriqués et assemblés dans différents pays de l'Union européenne ; les principaux le sont en France, en Allemagne, en Espagne et au Royaume-Uni. D'autres pièces proviennent d'autres pays, dont la Belgique, et l'assemblage final est réalisé sur le site de Toulouse, en France.
@@ -58,6 +67,7 @@ artworks:
 
   - slug: 'black-atlantic-2'
     title: Atlantic-2
+    category: 'nez'
     year: 1981
     description: |
       L'Atlantique 2, ou en abrégé ATL2, seconde version du Br 1150 Atlantic, est actuellement en service dans l'aéronautique navale française. L'orthographe du nom de l'avion a été modifiée par le président de la République François Mitterrand (Atlantique au lieu de Atlantic) afin de marquer la différence avec le Bréguet Atlantic 1150, premier du nom, issu d'un programme de l'OTAN, alors que l'Atlantique 2 est purement français.
@@ -68,6 +78,7 @@ artworks:
 
   - slug: 'black-bonanza'
     title: Bonanza 35
+    category: 'nez'
     year: 1947
     description: |
       Le Bonanza 35 est un aéronef présenté pour la première fois par Beechcraft en 1947 dans le Kansas aux USA. Il était apparu comme un avion de tourisme révolutionnaire pour son époque. Il est toujours fabriqué mais dans une nouvelle version (Beechcraft G36) par la Hawker Beechcraft. Plus de 17 000 Bonanza, toutes variantes confondues, ont été construits.
@@ -77,6 +88,7 @@ artworks:
   - slug: 'black-canadair'
     title: Canadair
     year: 1967
+    category: 'nez'
     description: |
       Le Canadair CL-215 est un avion amphibie conçu pour la lutte contre les feux de forêts. C'est le premier avion spécifiquement conçu pour une mission de bombardier d'eau et le plus célèbre appareil de ce type, au point qu'en France, Canadair est synonyme de bombardier d'eau. Le CL-215 a été conçu au Canada par Canadair (actuellement Bombardier Aéronautique) et fabriqué à 125 exemplaires entre 1966 et 1989, exportés vers une dizaine de pays. Le Canadair CL-415 lui a succédé.
 
@@ -85,6 +97,7 @@ artworks:
   - slug: 'black-challenger'
     title: Challenger
     year: 1980
+    category: 'nez'
     description: |
       La série des Bombardier Challenger 600 est une famille d'avions d'affaires biréacteur de la catégorie super-intermédiaires, produit par Canadair à partir du début des années 1980. Cette dernière est devenue une filiale de Bombardier Aéronautique en 1986.
 
@@ -92,6 +105,7 @@ artworks:
 
   - slug: 'black-flamant'
     title: Flamant
+    category: 'nez'
     backgroundColor: '#313232'
     year: 1948
     description: |
@@ -100,6 +114,7 @@ artworks:
       _The Dassault MD 315 Flamant is a French light twin-engined transport airplane built shortly after World War II by Dassault Aviation for the French Air Force._
 
   - slug: 'black-learjet'
+    category: 'nez'
     title: Learjet
     year: 1964
     description: |
@@ -110,6 +125,7 @@ artworks:
 
 
   - slug: 'black-pilatus'
+    category: 'nez'
     title: Pilatus
     year: 1981
     description: |
@@ -119,6 +135,7 @@ artworks:
 
   - slug: 'black-space-shuttle'
     title: Space Shuttle
+    category: 'nez'
     year: 1981
     description: |
       La navette spatiale américaine (en anglais Space shuttle ou Space Transportation System, STS) est un véhicule spatial conçu et utilisé par l'agence spatiale américaine (NASA), dont le vol inaugural remonte au 12 avril 1981 et qui a été retiré du service en juillet 2011, après avoir effectué un total de 135 vols.
