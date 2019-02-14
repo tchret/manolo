@@ -1,5 +1,5 @@
 <template>
-  <div class='loader'>
+  <div :class='{loader: true, visible: visible}'>
     <div :is='currentComponent'></div>
   </div>
 </template>
@@ -30,7 +30,7 @@
   import Xray from './Loader/Xray'
   import Zulu from './Loader/Zulu'
   import Yankee from './Loader/Yankee'
-  import { shuffle } from 'lodash'
+  import { shuffle, random  } from 'lodash'
 
 
   const components = {Alpha, Beta, Charlie, Delta, Echo, Foxtrot, Golf, Hotel, India, Juliett, Kilo, Lima, Mike, November, Oscar, Papa, Quebec, Romeo, Sierra, Tango, Uniform, Whiskey, Xray, Yankee, Zulu}
@@ -39,26 +39,35 @@
   export default {
     components: components,
     mounted() {
+      this.visible = true
       let i = 0
       setInterval(() => {
         i += 1
         if(!this.keys[i]) {
           i = 0
         }
+
         this.currentComponent = this.keys[i]
-      }, 120)
+      }, random(50, 500))
     },
     data() {
       const keys = shuffle(Object.keys(components))
       return {
         keys: keys,
-        currentComponent: keys[0]
+        currentComponent: keys[0],
+        visible: false
       }
     }
   }
 </script>
 
 <style scoped lang='scss'>
+.loader {
+  display: none;
+  &.visible {
+    display: block;
+  }
+}
 .loader /deep/ svg  {
   display: block;
   margin: auto;

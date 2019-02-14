@@ -111,11 +111,13 @@ export default {
   mounted() {
     var newImg = new Image
     newImg.onload = () => {
-      setTimeout(() => {
         this.imageLoaded = true
-      }, 300)
     }
-    newImg.src = this.imageUrl
+    if(newImg.complete) {
+      this.imageLoaded = true
+    } else {
+      newImg.src = this.imageUrl
+    }
 
     window.addEventListener('keydown', (e) => {
         console.log(e.keyCode);
