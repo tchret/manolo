@@ -26,7 +26,7 @@ const categoryRoutes = _.map(data.categories, (category) => {
   return `/series/${category}`
 })
 
-const routes = artworkRoutes + categoryRoutes
+const routes = artworkRoutes.concat(categoryRoutes)
 
 module.exports = {
   mode: 'universal',
