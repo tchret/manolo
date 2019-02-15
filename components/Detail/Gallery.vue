@@ -226,6 +226,11 @@
   top: 20px;
   transition: .15s ease-in-out transform;
 
+  @media(max-width: 500px) {
+    width: 300px;
+    height: 300px;
+  }
+
   &.size-3 {
 
   }

@@ -1,26 +1,20 @@
 <template>
-  <div class='page'>
-    <container>
-      <div>
+  <div>
+    <div class='header'>
+      <container class='hero'>
         <div :class='{"person manolo": true, "loaded": this.imageLoaded}' :style="{backgroundImage: `url(${baseFolder}/misc/manolo.jpg)`}">
         </div>
-      </div>
-    </container>
-    <container class='hero'>
-      <div class='title'>Manolo Chrétien</div>
-      <separator></separator>
-      <b>Manolo Chrétien</b> fell from the sky onto the Orange Air Base in France, 1966. He grew up amongst hangars, tarmac, kerosene and the aluminum skins of jet prototypes that his father, <a target="_blank" href='https://en.wikipedia.org/wiki/Jean-Loup_Chr%C3%A9tien'>France’s first Astronaut</a>, would one day pilot, a universe where Manolo developed his passion for the design and technology power, coexisting with industrial structures, metallic surfaces and infinite detail.
-    </container>
-    <separator></separator>
-
-    <container>
-      <category-item
-        v-for='(category, i) in categories'
-        :key='i'
-        :category='category'
-        :baseFolder='baseFolder'
-      ></category-item>
-    </container>
+        <div>
+          <b>Manolo Chrétien</b> fell from the sky onto the Orange Air Base in France, 1966. He grew up amongst hangars, tarmac, kerosene and the aluminum skins of jet prototypes that his father, <a target="_blank" href='https://en.wikipedia.org/wiki/Jean-Loup_Chr%C3%A9tien'>France’s first Astronaut</a>, would one day pilot, a universe where Manolo developed his passion for the design and technology power, coexisting with industrial structures, metallic surfaces and infinite detail.
+        </div>
+      </container>
+    </div>
+    <category-item
+      v-for='(category, i) in categories'
+      :key='i'
+      :category='category'
+      :baseFolder='baseFolder'
+    ></category-item>
   </div>
 </template>
 
@@ -76,9 +70,15 @@ export default {
     opacity: 1;
   }
 }
-  .page {
+  .header {
     padding: ($spacing * 10) 0;
-    padding-top: $spacing * 5;
+    padding-bottom: $spacing * 3;
+    display: flex;
+    background: black;
+    position: relative;
+    box-shadow: 0px 0px 100px 100px black;
+    z-index: 2;
+
   }
 
   .separator {
@@ -86,13 +86,13 @@ export default {
   }
 
   .person {
-    height: 200px;
-    width: 100%;
-    height: 457px;
-    background-size: cover !important;
+    flex: 0 0 300px;
+    height: 300px;
     opacity: 0;
     transition: .5s ease-in-out;
     transform: translateY(2%);
+    background-size: 100% !important;
+    margin-right: $spacing * 2;
 
     &.loaded {
       transform: translateY(0);
@@ -104,9 +104,11 @@ export default {
     font-size: 24px;
     font-weight: 300;
     line-height: 1.5;
-    margin-top: -100px !important;
     position: relative;
-
+    display: flex;
+    font-size: 23px;
+    max-width: 1000px !important;
+    align-items: center;
     .title {
       font-size: 40px;
       text-align: center;

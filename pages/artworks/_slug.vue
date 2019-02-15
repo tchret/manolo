@@ -212,9 +212,6 @@ export default {
   margin-bottom: -4px;
 }
 
-
-
-
 .description {
   font-size: 20px;
   font-weight: 100;
