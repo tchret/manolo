@@ -126,6 +126,7 @@ export default {
   }
 
   .description {
+    font-size: 20px;
     @media(max-width: 900px) {
       padding: 42px 0;
     }

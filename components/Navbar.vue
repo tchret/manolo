@@ -62,6 +62,7 @@
       margin-left: auto;
       pointer-events: auto;
     }
+
     .button {
       pointer-events: auto;
       display: inline-block;
