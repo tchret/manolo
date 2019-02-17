@@ -11,12 +11,7 @@ try {
   console.log(e)
 }
 
-const base = process.env.DEPLOY_ENV === 'GH_PAGES' ? '/manolo/' : '';
-const routerBase = process.env.DEPLOY_ENV === 'GH_PAGES' ? {
-  router: {
-    base: base
-  }
-} : {}
+
 
 const artworkRoutes = _.map(data.artworks, (artwork) => {
   return `/artworks/${artwork.slug}`
@@ -32,13 +27,11 @@ const title = "Manolo Chrétien — Artist"
 module.exports = {
   mode: 'universal',
 
-  ...routerBase,
-
   /*
   ** Headers of the page
   */
   head: {
-    title: pkg.name,
+    title: title,
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
