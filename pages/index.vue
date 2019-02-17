@@ -4,7 +4,7 @@
       <container class='hero'>
         <div :class='{"person manolo": true, "loaded": this.imageLoaded}' :style="{backgroundImage: `url(${this.$store.state.baseFolder}misc/manolo.jpg)`}">
         </div>
-        <div>
+        <div class='description'>
           <b>Manolo Chrétien</b> fell from the sky onto the Orange Air Base in France, 1966. He grew up amongst hangars, tarmac, kerosene and the aluminum skins of jet prototypes that his father, <a target="_blank" href='https://en.wikipedia.org/wiki/Jean-Loup_Chr%C3%A9tien'>France’s first Astronaut</a>, would one day pilot, a universe where Manolo developed his passion for the design and technology power, coexisting with industrial structures, metallic surfaces and infinite detail.
         </div>
       </container>
@@ -99,6 +99,15 @@ export default {
     font-size: 23px;
     max-width: 1000px !important;
     align-items: center;
+    @media(max-width: 900px) {
+      display: flex;
+      flex-flow: column;
+      .person {
+        width: 300px;
+        margin: auto;
+        order: 2;
+      }
+    }
     .title {
       font-size: 40px;
       text-align: center;
@@ -113,6 +122,12 @@ export default {
       text-transform: uppercase;
       font-size: 18px;
       letter-spacing: 0px;
+    }
+  }
+
+  .description {
+    @media(max-width: 900px) {
+      padding: 42px 0;
     }
   }
 </style>

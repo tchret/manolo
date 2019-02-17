@@ -68,6 +68,7 @@
       height: 36px;
       display: flex;
       align-items: center;
+      user-select: none;
       min-width: 150px;
       justify-content: center;
       box-shadow: 0px 0px 0px 1.3px white;

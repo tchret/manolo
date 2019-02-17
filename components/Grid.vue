@@ -59,6 +59,9 @@
   z-index: 999;
   top: 20px;
   background: black;
+  @media(max-width: 900px) {
+    top: 60px;
+  }
   &:after {
     position: absolute;
     left: 0;
@@ -67,6 +70,10 @@
     height: 20px;
     background: black;
     content: '';
+    @media(max-width: 900px) {
+      top: -60px;
+      height: 60px;
+    }
   }
 
   &:before {
