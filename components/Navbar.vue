@@ -83,6 +83,7 @@
       transition: background .15s ease-in-out;
       background: black;
       text-decoration: none;
+      font-weight: 500;
 
       &:hover {
         background: darken(white, 85%);
