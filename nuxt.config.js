@@ -27,7 +27,8 @@ const categoryRoutes = _.map(data.categories, (category) => {
 })
 
 const routes = artworkRoutes.concat(categoryRoutes)
-
+const description = "Manolo fell from the sky onto the Orange Air Base in France, 1966. He grew up amongst hangars, tarmac, kerosene and the aluminum skins of jet prototypes that his father, France’s first Astronaut, would one day pilot, a universe where Manolo developed his passion for the design and technology power, coexisting with industrial structures, metallic surfaces and infinite detail."
+const title = "Manolo Chrétien — Artist"
 module.exports = {
   mode: 'universal',
 
@@ -41,7 +42,14 @@ module.exports = {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: pkg.description }
+      { hid: 'description', name: 'description', content: pkg.description },
+      { hid: 'description', name: 'description', content: ""},
+
+      { property: 'og:title', content: title },
+       { property: 'og:type', content: 'website' },
+       { property: 'og:url', content: 'http://hackerloop.com' },
+       { property: 'og:image', content: '/misc/ogimage.jpg' },
+       { property: 'og:description', content: description },
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }

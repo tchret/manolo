@@ -77,21 +77,19 @@ export default {
       return findIndex(this.artworks, (artwork) => artwork.slug == this.artwork.slug)
     },
     nextUrl() {
-      if(!data.artworks[this.index + 1]) {
+      // return this.artworks[0].slug
+      if((this.index + 1) == (this.artworks.length)) {
         return baseUrl + this.artworks[0].slug
       } else {
         return baseUrl + this.artworks[this.index + 1].slug
       }
     },
     prevUrl() {
-      if(!data.artworks[this.index - 1]) {
+      if((this.index - 1) < 0) {
         return baseUrl + this.artworks[this.artworks.length - 1].slug
       } else {
         return baseUrl + this.artworks[this.index - 1].slug
       }
-    },
-    debug() {
-      return this.artworks[this.index + 1]
     }
   },
 
@@ -106,11 +104,17 @@ export default {
       this.galleryVisible = isVisible
     }
   },
+  destroyed() {
+    // window.removeEventListener('keydown')
+  },
   mounted() {
     var newImg = new Image
     newImg.onload = () => {
         this.imageLoaded = true
     }
+
+    this.$store.commit('setCategory', this.artwork.category)
+
     newImg.src = this.imageUrl
     if(newImg.complete) {
       this.imageLoaded = true
