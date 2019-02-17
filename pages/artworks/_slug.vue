@@ -14,6 +14,7 @@
         <artwork-hero
           :imageUrl='this.imageUrl'
           :imageLoaded='this.imageLoaded'
+
         ></artwork-hero>
       </div>
       <div class='header'>
@@ -67,11 +68,7 @@ export default {
 
   computed: {
     imageUrl() {
-    let folder = ''
-      if(this.production) {
-        folder = '/manolo/'
-      }
-      return `${folder}/artworks/noses/${this.artwork.slug.toUpperCase()}.jpg`
+      return `${this.$store.state.baseFolder}artworks/${this.artwork.category}/${this.artwork.slug.toUpperCase()}.jpg`
     },
     description() {
       return this.artwork.description.trim()
@@ -120,7 +117,6 @@ export default {
     }
 
     window.addEventListener('keydown', (e) => {
-        console.log(e.keyCode);
         if(e.keyCode == 37) {
           this.$router.push(this.prevUrl)
         } else if (e.keyCode == 39) {

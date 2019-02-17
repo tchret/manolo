@@ -1,14 +1,13 @@
 <template>
-<div class='wrapper'>
-  <div
-    :class='{background: true, [`go-to-artwork-${this.animationDirection}`]: true}'
-    :style='{backgroundImage: `url(${baseFolder}/gallery_wall/1.jpg)`}'
-  >
-    <div class='artworks'>
-      <Artwork
-        v-for="(artwork, i) in [this.artwork]" :key='i' v-bind='artwork'
-        @click.native='animationDirection = i'
-      ></Artwork>
+<div class='helper'>
+  <div class='wrapper'>
+    <div
+      :class='{background: true, [`go-to-artwork-${this.animationDirection}`]: true}'
+      :style='{backgroundImage: `url(${this.$store.state.baseFolder}gallery_wall/1.jpg)`}'
+    >
+      <div class='artworks'>
+
+      </div>
     </div>
   </div>
 </div>
@@ -16,46 +15,35 @@
 <script>
   import data from '~/assets/data.yml'
   import { filter, findIndex } from 'lodash'
-  import Artwork from '~/components/Artwork'
 
   export default {
-    props: ['category', 'baseFolder'],
-    components: { Artwork },
+    props: ['category'],
+    components: {  },
     data() {
-      const artworks = filter(data.artworks, (a) => { return a.category == this.category } )
+      const currentCategory = data.categories[0]
 
       return {
-        artworks: artworks,
-        currentArtwork: artworks[0],
+        currentCategory: currentCategory,
+        categories: data.categories,
         animationDirection: false
       }
     },
-    computed: {
-      index() {
-        return findIndex(this.artworks, (artwork) => artwork.slug == this.currentArtwork.slug)
-      },
-      nextArtwork() {
-        if(this.artworks[this.index + 1]) {
-          return this.artworks[0]
-        } else {
-          return this.artworks[this.index + 1]
-        }
-      },
-      prevArtwork() {
-        if(this.artworks[this.index - 1]) {
-          return this.artworks[this.artworks.length - 1]
-        } else {
-          return this.artworks[this.index - 1]
-        }
+    methods: {
+      artworksFrom(category) {
+        return filter(data.artworks, (a) => { return a.category == category } )
       }
     }
   }
 </script>
 
 <style lang='scss' scoped>
+.helper {
+  height: 650px;
+}
 .wrapper {
   overflow: hidden;
   padding-top: 50px;
+
 }
 .background {
   height: 600px;

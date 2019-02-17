@@ -2,24 +2,13 @@
   <div class='page'>
     <container class='header'>
       <div class='title'>
-        Oeuvres
+        Artworks
       </div>
       <div class='subtitle'>
         Manolo Chrétien
       </div>
     </container>
-    <container :class='{grid: true, hovered: hoveredItem != null}'>
-      <nuxt-link
-        @mouseenter.native='() => hoveredItem = i'
-        @mouseleave.native='hoveredItem = null'
-        :class='{cell: true, hovered: i == hoveredItem}'
-        v-for='(artwork, i) in artworks'
-        :to='`/artworks/${artwork.slug}`'
-        :key='i'
-      >
-        <artwork-item :i='i' v-bind='artwork' :production='production'></artwork-item>
-      </nuxt-link>
-    </container>
+    <grid :category='category'></grid>
   </div>
 </template>
 
@@ -27,17 +16,13 @@
 import data from '~/assets/data.yml'
 import ArtworkItem from '~/components/ArtworkItem'
 import Container from '~/components/Container'
-
-import { filter } from 'lodash'
+import Grid from '~/components/Grid'
 
 export default {
-  components: { ArtworkItem, Container },
+  components: { ArtworkItem, Container, Grid },
   asyncData ({ params, store, isDev }) {
-
-    const artworks = filter(data.artworks, (a) => { return a.category == params.category } )
-
     return {
-      artworks: artworks,
+      category: params.category,
       production: !isDev
     }
   },
@@ -50,92 +35,6 @@ export default {
 </script>
 
 <style scoped lang='scss'>
-.grid {
-  display: flex;
-  flex-wrap: wrap;
-  max-width: 1000px !important;
-  justify-content: center;
-
-  &.hovered {
-    .cell {
-      opacity: .3;
-    }
-
-    .cell {
-    }
-  }
-  .cell {
-    flex: 0 0 33%;
-    align-items: center;
-    justify-content: center;
-    display: flex;
-    position: relative;
-    opacity: .8;
-    transition: .5s ease-in-out;
-
-    @media(max-width: 800px) {
-      flex: 0 0 50%;
-    }
-
-    @media(max-width: 700px) {
-      flex: 0 0 50%;
-    }
-    @media(max-width: 500px) {
-      flex: 0 0 100%;
-    }
-
-    &:hover {
-      opacity: 1;
-    }
-
-    &:after {
-      content: '';
-      padding-bottom: 100%;
-      position: relative;
-    }
-
-    & /deep/ .photo {
-      transition: .15s ease-in-out;
-      position: absolute;
-      top: 12px;
-      left: 12px;
-      right: 12px;
-      bottom: 12px;
-      background-size: cover !important;
-
-      &:hover {
-        .title-container {
-          opacity: 1;
-          transform: translateY(0%);
-        }
-      }
-
-      .title-container {
-        font-size: 14px;
-        color: white;
-        position: absolute;
-        bottom: -20px;
-        left: 0;
-        right: 0;
-        text-align: center;
-        opacity: 0;
-        transition: .15s ease-in-out;
-        transform: translateY(-20%);
-        text-align: center;
-
-        span {
-          background: rgba(white, .2);
-          display: inline-block;
-          color: black;
-          line-height: 24px;
-          padding: 0 $spacing * 2;
-          color: white;
-          border-radius: 20em
-        }
-      }
-    }
-  }
-}
 
 .page {
   padding-bottom: $spacing * 10;

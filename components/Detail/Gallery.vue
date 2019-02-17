@@ -1,5 +1,5 @@
 <template>
-<div :class='{wall: true, visible: visible}' :style='{backgroundImage: `url(${baseFolder}/gallery_wall/1.jpg)`}'>
+<div :class='{wall: true, visible: visible}' :style='{backgroundImage: `url(${this.$store.state.baseFolder}gallery_wall/1.jpg)`}'>
   <div class='hud'>
     <div class='infos'>
       <div class='alpha'>{{this.artwork.title}}</div>
@@ -25,7 +25,7 @@
     <div class='photo' v-if='imageLoaded' :style='{backgroundImage: `url(${imageUrl})`}'></div>
     <loader v-else></loader>
   </div>
-  <img class='person' :src='`${baseFolder}/person/1.png`'>
+  <img class='person' :src='`${this.$store.state.baseFolder}person/1.png`'>
 </div>
 </template>
 
@@ -36,15 +36,6 @@
   export default {
     components: { Loader, SoundSwitcher },
     props: ['imageLoaded', 'imageUrl', 'production', 'artwork', 'visible', 'sizes'],
-    computed: {
-      baseFolder() {
-        if(this.production) {
-          return '/manolo'
-        } else {
-          return ''
-        }
-      }
-    },
     data() {
       return {
         activeSize: this.sizes.length - 1,

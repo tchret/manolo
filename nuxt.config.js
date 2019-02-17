@@ -67,7 +67,9 @@ module.exports = {
   ** Plugins to load before mounting the App
   */
   plugins: [
-    {src: '~/plugins/visibility.js', srr: false}
+    {src: '~/plugins/visibility.js', srr: false},
+    {src: '~/plugins/baseFolderMixin.js', srr: true}
+
   ],
 
   /*

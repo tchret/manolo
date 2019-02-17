@@ -43,6 +43,11 @@
 </script>
 
 <style lang='scss' scoped>
+
+  .logo {
+    pointer-events: auto;
+  }
+
   .navbar {
     position: fixed;
     left: 0;
@@ -51,11 +56,14 @@
     top: 0;
     padding: 20px;
     display: flex;
+    pointer-events: none;
 
     .menu {
       margin-left: auto;
+      pointer-events: auto;
     }
     .button {
+      pointer-events: auto;
       display: inline-block;
       height: 36px;
       display: flex;
@@ -72,7 +80,7 @@
       text-decoration: none;
 
       &:hover {
-        background: rgba(white, .15);
+        background: darken(white, 85%);
       }
 
       svg {

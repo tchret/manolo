@@ -2,19 +2,15 @@
   <div>
     <div class='header'>
       <container class='hero'>
-        <div :class='{"person manolo": true, "loaded": this.imageLoaded}' :style="{backgroundImage: `url(${baseFolder}/misc/manolo.jpg)`}">
+        <div :class='{"person manolo": true, "loaded": this.imageLoaded}' :style="{backgroundImage: `url(${this.$store.state.baseFolder}misc/manolo.jpg)`}">
         </div>
         <div>
           <b>Manolo Chrétien</b> fell from the sky onto the Orange Air Base in France, 1966. He grew up amongst hangars, tarmac, kerosene and the aluminum skins of jet prototypes that his father, <a target="_blank" href='https://en.wikipedia.org/wiki/Jean-Loup_Chr%C3%A9tien'>France’s first Astronaut</a>, would one day pilot, a universe where Manolo developed his passion for the design and technology power, coexisting with industrial structures, metallic surfaces and infinite detail.
         </div>
       </container>
     </div>
-    <category-item
-      v-for='(category, i) in categories'
-      :key='i'
-      :category='category'
-      :baseFolder='baseFolder'
-    ></category-item>
+    <grid :category="'nez'"></grid>
+
   </div>
 </template>
 
@@ -23,12 +19,14 @@ import data from '~/assets/data.yml'
 import Container from '~/components/Container'
 import CategoryItem from '~/components/CategoryItem'
 import Separator from '~/components/Separator'
+import Grid from '~/components/Grid'
 
 export default {
   components: {
-    Container, CategoryItem, Separator
+    Container, CategoryItem, Separator, Grid
   },
-  asyncData({params, isDev}) {
+  asyncData({params, isDev, store}) {
+    store.commit('setProduction', !isDev)
     return {
       categories: data.categories,
       production: !isDev
@@ -40,15 +38,8 @@ export default {
     }
   },
   computed: {
-    baseFolder() {
-      if(this.production) {
-        return '/manolo'
-      } else {
-        return ''
-      }
-    },
     imageUrl() {
-      return `${this.baseFolder}/misc/manolo.jpg`
+      return `${this.$store.state.baseFolder}misc/manolo.jpg`
     }
   },
   mounted() {
@@ -71,12 +62,11 @@ export default {
   }
 }
   .header {
-    padding: ($spacing * 10) 0;
-    padding-bottom: $spacing * 3;
+    padding-top: 60px;
+    padding-bottom: $spacing * 2;
     display: flex;
     background: black;
     position: relative;
-    box-shadow: 0px 0px 100px 100px black;
     z-index: 2;
 
   }

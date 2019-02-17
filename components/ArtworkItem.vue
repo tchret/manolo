@@ -14,7 +14,7 @@
 
   export default {
     components: { Loader },
-    props: ['slug', 'production', 'title', 'i'],
+    props: ['slug', 'production', 'title', 'i', 'category'],
     data() {
       return {
         imageLoaded: false
@@ -22,11 +22,7 @@
     },
     computed: {
       imageUrl() {
-        let folder = ''
-        if(this.production) {
-          folder = '/manolo/'
-        }
-        return `${folder}/artworks/noses/${this.slug.toUpperCase()}.jpg`
+        return `${this.$store.state.baseFolder}artworks/${this.category}/${this.slug.toUpperCase()}.jpg`
       }
     },
     mounted() {
