@@ -16,9 +16,9 @@ export const actions = {
   async nuxtServerInit ({commit }, { isDev }) {
     let baseFolder = '/'
 
-    if(!isDev) {
-      baseFolder = '/manolo/'
-    }
+    // if(!isDev) {
+    //   baseFolder = '/manolo/'
+    // }
     commit('setBaseFolder', baseFolder)
   }
 }
