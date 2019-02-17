@@ -46,6 +46,9 @@
 
   .logo {
     pointer-events: auto;
+    &>div + span {
+      display: none;
+    }
   }
 
   .navbar {

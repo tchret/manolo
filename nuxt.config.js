@@ -42,12 +42,11 @@ module.exports = {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: pkg.description },
-      { hid: 'description', name: 'description', content: ""},
+      { hid: 'description', name: 'description', content: description},
 
       { property: 'og:title', content: title },
        { property: 'og:type', content: 'website' },
-       { property: 'og:url', content: 'http://hackerloop.com' },
+       { property: 'og:url', content: 'http://manolochretien.com' },
        { property: 'og:image', content: '/misc/ogimage.jpg' },
        { property: 'og:description', content: description },
     ],
