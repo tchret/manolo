@@ -102,7 +102,7 @@ export default {
     outline: 0;
     color: white;
     font-weight: 500;
-    font-family: 'Aeroport';
+    font-family: 'AeroportM';
     font-weight: 500;
     color: rgba(white,.8);
     font-size: 16px;
