@@ -176,6 +176,11 @@
   background-position: center center;
   opacity: 1;
   transition: opacity 0s ease-in-out;
+  visibility: hidden;
+
+  &.visible {
+    visibility: visible;
+  }
 
   @media(max-width: 600px) {
     min-height: 100vh;

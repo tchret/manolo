@@ -7,8 +7,12 @@
         <div class='description'>
           <b>Manolo Chrétien</b> fell from the sky onto the Orange Air Base in France, 1966. He grew up amongst hangars, tarmac, kerosene and the aluminum skins of jet prototypes that his father, <a target="_blank" href='https://en.wikipedia.org/wiki/Jean-Loup_Chr%C3%A9tien'>France’s first Astronaut</a>, would one day pilot, a universe where Manolo developed his passion for the design and technology power, coexisting with industrial structures, metallic surfaces and infinite detail.
           <div class='buttons'>
+            <span class='input'>
+              <send-icon></send-icon>
+              <input value='ec@oloman.com' readonly @click='$event.target.select()' @focus="$event.target.select()" />
+            </span>
             <a class='button messenger' target="_blank" href='http://m.me/art.manolochretien'>
-              <Messenger></Messenger> Contact me on messenger
+              <Messenger></Messenger><span class='hidden-xs'>Contact me on</span> <span> Messenger</span>
             </a>
           </div>
         </div>
@@ -26,10 +30,11 @@ import CategoryItem from '~/components/CategoryItem'
 import Separator from '~/components/Separator'
 import Grid from '~/components/Grid'
 import Messenger from '~/components/Icon/Messenger'
+import { SendIcon } from 'vue-feather-icons'
 
 export default {
   components: {
-    Container, CategoryItem, Separator, Grid, Messenger
+    Container, CategoryItem, Separator, Grid, Messenger, SendIcon
   },
   asyncData({params, isDev, store}) {
     store.commit('setProduction', !isDev)
@@ -64,7 +69,53 @@ export default {
 <style scoped lang='scss'>
 .buttons {
   margin-top: $spacing * 2;
+  display: flex;
+  @media(max-width: 600px) {
+    a, span.input {
+      flex: 1;
+      justify-content: center;
+
+    }
+    span.input {
+      margin-right: 0 !important;
+    }
+  }
 }
+
+.input {
+  display: flex;
+  align-items: center;
+  margin-right: $spacing * 3;
+
+  svg {
+    width: 14px;
+    height: 14px;
+    margin-right: $spacing;
+    stroke-width: 1.6;
+    fill: white;
+  }
+  input {
+    position: relative;
+    top: -2px;
+    background: none;
+    border: none;
+    outline: 0;
+    color: white;
+    font-weight: 500;
+    font-family: 'Aeroport';
+    font-weight: 500;
+    color: rgba(white,.8);
+    font-size: 16px;
+    width: 130px;
+    padding: 0;
+
+    &:focus {
+      color: white;
+    }
+  }
+}
+
+
 .button {
   line-height: 36px;
   display: inline-flex;
@@ -72,18 +123,26 @@ export default {
   text-decoration: none;
   font-weight: 500;
   align-items: center;
+  white-space: pre;
+  .hidden-xs {
+    @media(max-width: 600px) {
+      display: none;
+    }
+  }
+
 
   &.messenger {
-    color: #cce5fd;
+    color: rgba(white, .8);
     transition: color .15s ease-in-out;
 
+
     &:hover {
-      color: darken(#cce5fd, 10%);
+      color: white;
     }
   }
 
   svg {
-    margin-right: $spacing * 1.5;
+    margin-right: $spacing;
   }
 }
 @keyframes enter {
