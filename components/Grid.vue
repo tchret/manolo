@@ -115,7 +115,7 @@
   flex-wrap: wrap;
   justify-content: center;
   margin-top: 30px;
-  padding-bottom: 100px;
+  padding-bottom: 60px;
 
   &.hovered {
     .cell {

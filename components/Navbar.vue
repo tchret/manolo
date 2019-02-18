@@ -1,9 +1,8 @@
 <template>
 <div class='navbar' v-if="$nuxt.$route.name.includes('series')">
-  <a class='index icon-left button' @click='() => this.$router.back()'>
-    <arrow-left-icon class='refresh'></arrow-left-icon>
-    <span>Back</span>
-  </a>
+  <nuxt-link class='logo' to='/'>
+    <logo></logo>
+  </nuxt-link>
   <div class='menu'>
     <a class='index button' @click='goToRandomArtwork'>
       <span>Random artwork</span>

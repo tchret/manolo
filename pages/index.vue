@@ -6,6 +6,11 @@
         </div>
         <div class='description'>
           <b>Manolo Chrétien</b> fell from the sky onto the Orange Air Base in France, 1966. He grew up amongst hangars, tarmac, kerosene and the aluminum skins of jet prototypes that his father, <a target="_blank" href='https://en.wikipedia.org/wiki/Jean-Loup_Chr%C3%A9tien'>France’s first Astronaut</a>, would one day pilot, a universe where Manolo developed his passion for the design and technology power, coexisting with industrial structures, metallic surfaces and infinite detail.
+          <div class='buttons'>
+            <a class='button messenger' target="_blank" href='http://m.me/art.manolochretien'>
+              <Messenger></Messenger> Contact me on messenger
+            </a>
+          </div>
         </div>
       </container>
     </div>
@@ -20,10 +25,11 @@ import Container from '~/components/Container'
 import CategoryItem from '~/components/CategoryItem'
 import Separator from '~/components/Separator'
 import Grid from '~/components/Grid'
+import Messenger from '~/components/Icon/Messenger'
 
 export default {
   components: {
-    Container, CategoryItem, Separator, Grid
+    Container, CategoryItem, Separator, Grid, Messenger
   },
   asyncData({params, isDev, store}) {
     store.commit('setProduction', !isDev)
@@ -56,6 +62,30 @@ export default {
 </script>
 
 <style scoped lang='scss'>
+.buttons {
+  margin-top: $spacing * 2;
+}
+.button {
+  line-height: 36px;
+  display: inline-flex;
+  font-size: 16px;
+  text-decoration: none;
+  font-weight: 500;
+  align-items: center;
+
+  &.messenger {
+    color: #cce5fd;
+    transition: color .15s ease-in-out;
+
+    &:hover {
+      color: darken(#cce5fd, 10%);
+    }
+  }
+
+  svg {
+    margin-right: $spacing * 1.5;
+  }
+}
 @keyframes enter {
   to {
     opacity: 1;

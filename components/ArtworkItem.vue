@@ -52,7 +52,7 @@
   opacity: 0;
 
   @for $i from 1 to 20 {
-    &.item-#{$i} { animation-delay: $i * 0.25s; }
+    &.item-#{$i} { animation-delay: $i * 0.2s; }
   }
 }
 </style>
