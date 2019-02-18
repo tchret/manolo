@@ -62,7 +62,7 @@
 
     a {
       flex: 1;
-      min-width: 120px;
+      min-width: 110px;
       justify-content: center;
       white-space: nowrap;
       padding: 12px 0;
@@ -87,7 +87,8 @@
     cursor: pointer;
     margin: -12px;
     padding: 12px 0;
-    margin-left: 12px;
+    margin-left: 0;
+    margin-right: 0;
     font-size: 14px;
     position: relative;
     &:after {
