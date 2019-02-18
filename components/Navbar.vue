@@ -3,13 +3,13 @@
   <nuxt-link class='logo' to='/'>
     <logo></logo>
   </nuxt-link>
-  <div class='menu' v-if="$nuxt.$route.name.includes('series')">
+  <div :class='{menu: true, active: $nuxt.$route.name.includes("series")}'>
     <a class='index button' @click='goToRandomArtwork'>
       <span>Random artwork</span>
       <refresh-cw-icon></refresh-cw-icon>
     </a>
   </div>
-  <div class='menu' v-else>
+  <div class='menu' :class='{menu: true, active: !$nuxt.$route.name.includes("series")}'>
     <nuxt-link class='index button' :to='`/series/${this.$store.state.category}`'>
       <span>Index</span>
       <menu-icon></menu-icon>
@@ -58,6 +58,12 @@
     .menu {
       margin-left: auto;
       pointer-events: auto;
+
+      display: none;
+
+      &.active {
+        display: block;
+      }
     }
 
     .button {
