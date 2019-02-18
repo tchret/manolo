@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class='wrapper'>
     <div class='tabs-wrapper'>
     <container class='tabs'>
         <nuxt-link
@@ -46,10 +46,14 @@
 </script>
 
 <style lang='scss' scoped>
+
+.wrapper {
+  position: relative;
+  z-index: 1;
+}
 .container {
   max-width: 1000px !important;
   position: relative;
-  z-index: 1;
 }
 
 .tabs-wrapper {
@@ -70,6 +74,7 @@
     height: 20px;
     background: black;
     content: '';
+    z-index: -1;
     @media(max-width: 900px) {
       top: -60px;
       height: 60px;
