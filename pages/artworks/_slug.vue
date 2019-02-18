@@ -54,7 +54,7 @@ import Separator from '~/components/Separator'
 const baseUrl = '/artworks/'
 
 export default {
-  components: { ArtworkHero, Gallery, ChevronLeftIcon, ChevronRightIcon },
+  components: { ArtworkHero, Gallery, ChevronLeftIcon, ChevronRightIcon, Separator },
   asyncData ({ params, store, isDev }) {
     const artwork = find(data.artworks, (el) => el.slug == params.slug)
 
