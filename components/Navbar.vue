@@ -3,13 +3,13 @@
   <nuxt-link class='logo' to='/'>
     <logo></logo>
   </nuxt-link>
-  <div :class='{menu: true, active: $nuxt.$route.name.includes("series")}'>
+  <div :class='{menu: true, active: this.$nuxt._route.params.hasOwnProperty("category")}'>
     <a class='index button' @click='goToRandomArtwork'>
       <span>Random artwork</span>
       <refresh-cw-icon></refresh-cw-icon>
     </a>
   </div>
-  <div class='menu' :class='{menu: true, active: !$nuxt.$route.name.includes("series")}'>
+  <div class='menu' :class='{menu: true, active: !this.$nuxt._route.params.hasOwnProperty("category")}'>
     <nuxt-link class='index button' :to='`/series/${this.$store.state.category}`'>
       <span>Index</span>
       <menu-icon></menu-icon>
