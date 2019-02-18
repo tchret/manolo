@@ -56,6 +56,13 @@
   position: relative;
 }
 
+.tabs {
+  @media(max-width: 900px) {
+    display: flex;
+    padding: 0;
+  }
+}
+
 .tabs-wrapper {
   border-bottom: 1px solid rgba(white, .2);
   text-align: center;
@@ -65,6 +72,11 @@
   background: black;
   @media(max-width: 900px) {
     top: 60px;
+
+    a {
+      flex: 1;
+
+    }
   }
   &:after {
     position: absolute;

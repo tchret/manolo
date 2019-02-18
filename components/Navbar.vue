@@ -54,7 +54,9 @@
     padding: 20px;
     display: flex;
     pointer-events: none;
-
+    @media(max-width: 900px) {
+      padding: 16px;
+    }
     .menu {
       margin-left: auto;
       pointer-events: auto;
