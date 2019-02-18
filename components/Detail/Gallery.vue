@@ -51,6 +51,17 @@
   position: absolute;
   right: 0;
   bottom: 0;
+
+  .size-switcher {
+    display: flex;
+    justify-content: center;
+
+    a {
+      flex: 1;
+      min-width: 120px;
+      justify-content: center;
+    }
+  }
   @media(max-width: 600px) {
     left: 0;
     text-align: center;
@@ -253,7 +264,9 @@
   width: 250px;
 
   @media(max-width: 600px) {
-    display: none;
+    bottom: -50%;
+    left: 0;
+    top: 0;
   }
 }
 </style>

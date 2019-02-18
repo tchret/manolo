@@ -142,7 +142,7 @@ export default {
 }
 
 .trigger {
-  height: 650px;
+  height: 590px;
   @media(max-width: 600px) {
     min-height: 100vh;
   }
