@@ -64,7 +64,7 @@
 }
 
 .tabs-wrapper {
-  border-bottom: 1px solid rgba(white, .2);
+  border-bottom: 1px solid rgba(white, .35);
   text-align: center;
   position: sticky;
   z-index: 999;
