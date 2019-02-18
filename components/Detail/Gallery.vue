@@ -56,10 +56,16 @@
     display: flex;
     justify-content: center;
 
+    @media(max-width: 600px) {
+      margin: 0 -20px;
+    }
+
     a {
       flex: 1;
       min-width: 120px;
       justify-content: center;
+      white-space: nowrap;
+      padding: 12px 0;
     }
   }
   @media(max-width: 600px) {
@@ -79,8 +85,8 @@
     opacity: .6;
     align-items: center;
     cursor: pointer;
-    padding: 12px;
     margin: -12px;
+    padding: 12px 0;
     margin-left: 12px;
     font-size: 14px;
     position: relative;

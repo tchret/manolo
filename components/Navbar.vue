@@ -1,20 +1,15 @@
 <template>
-<div class='navbar' v-if="$nuxt.$route.name.includes('series')">
+<div class='navbar'>
   <nuxt-link class='logo' to='/'>
     <logo></logo>
   </nuxt-link>
-  <div class='menu'>
+  <div class='menu' v-if="$nuxt.$route.name.includes('series')">
     <a class='index button' @click='goToRandomArtwork'>
       <span>Random artwork</span>
       <refresh-cw-icon></refresh-cw-icon>
     </a>
   </div>
-</div>
-<div class='navbar' v-else>
-  <nuxt-link class='logo' to='/'>
-    <logo></logo>
-  </nuxt-link>
-  <div class='menu'>
+  <div class='menu' v-else>
     <nuxt-link class='index button' :to='`/series/${this.$store.state.category}`'>
       <span>Index</span>
       <menu-icon></menu-icon>
