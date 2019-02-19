@@ -102,8 +102,7 @@ export default {
     outline: 0;
     color: white;
     font-weight: 500;
-    font-family: 'AeroportM';
-    font-weight: 500;
+    font-family: "AeroportM", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     color: rgba(white,.8);
     font-size: 16px;
     width: 130px;

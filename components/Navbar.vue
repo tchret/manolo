@@ -3,14 +3,16 @@
   <nuxt-link class='logo' to='/'>
     <logo></logo>
   </nuxt-link>
-  <div :class='{menu: true, active: this.$nuxt._route.params.hasOwnProperty("category")}'>
-    <a class='index button' @click='goToRandomArtwork'>
+  <div :class='{menu: true, active: true}'>
+    <a class='button' href='https://www.gadcollection.com/fr/28-manolo-chretien' target='_blank'>
+      <span>Shop</span>
+       <shopping-cart-icon></shopping-cart-icon>
+     </a>
+    <a class='index button' @click='goToRandomArtwork' v-if='this.$nuxt._route.params.hasOwnProperty("category")' >
       <span>Random artwork</span>
       <refresh-cw-icon></refresh-cw-icon>
     </a>
-  </div>
-  <div class='menu' :class='{menu: true, active: !this.$nuxt._route.params.hasOwnProperty("category")}'>
-    <nuxt-link class='index button' :to='`/series/${this.$store.state.category}`'>
+    <nuxt-link class='index button' v-else :to='`/series/${this.$store.state.category}`'>
       <span>Index</span>
       <menu-icon></menu-icon>
     </nuxt-link>
@@ -19,13 +21,13 @@
 </template>
 
 <script>
-  import { MenuIcon, ArrowLeftIcon, RefreshCwIcon } from 'vue-feather-icons'
+  import { MenuIcon, ArrowLeftIcon, RefreshCwIcon, ShoppingCartIcon } from 'vue-feather-icons'
   import Logo from './Logo'
   import data from '~/assets/data.yml'
   import { sample } from 'lodash'
 
   export default {
-    components: { Logo, MenuIcon, ArrowLeftIcon, RefreshCwIcon },
+    components: { Logo, MenuIcon, ArrowLeftIcon, RefreshCwIcon, ShoppingCartIcon },
     methods: {
       goToRandomArtwork() {
          const randomArtwork = sample(data.artworks)
@@ -37,7 +39,6 @@
 </script>
 
 <style lang='scss' scoped>
-
   .logo {
     pointer-events: auto;
     &>div + span {
@@ -64,7 +65,7 @@
       display: none;
 
       &.active {
-        display: block;
+        display: flex;
       }
     }
 
@@ -87,6 +88,24 @@
       text-decoration: none;
       font-weight: 500;
 
+      @media(max-width: 600px) {
+        box-shadow: none !important;
+        min-width: auto;
+        span {
+          margin-right: 0 !important;
+        }
+
+        svg {
+          order: 1;
+          margin-right: $spacing * 2;
+        }
+
+        span {
+          order: 2
+        }
+      }
+
+
       &:hover {
         background: darken(white, 85%);
       }
@@ -94,6 +113,8 @@
       svg {
         stroke-width: 1.7;
         margin-left: auto;
+        width: 20px;
+        height: 20px;
 
         &.feather-refresh-cw {
           width: 20px;
@@ -104,7 +125,6 @@
         position: relative;
         bottom: 1px;
         margin-right: $spacing * 2;
-
       }
       &.icon-left {
         padding-left: 5px;
