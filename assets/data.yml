@@ -8,7 +8,53 @@ sizes:
 categories:
   - 'nez'
   - 'cieux'
+
+galleries:
+  - name: 'Galerie GADCOLLECTION'
+    emoji: '🇫🇷'
+    city: 'Paris, France'
+    url: 'https://www.gadcollection.com/fr/28-manolo-chretien'
+  - name: 'Galerie Opiom'
+    emoji: '🇫🇷'
+    city: 'Opio, France'
+    url: 'http://opiomgallery.com/fr/artistes/oeuvresphotographe/2920/manolo-chretien'
+  - name: 'French Art Studio'
+    emoji: '🇬🇧'
+    city: 'Londres, UK'
+    url: 'http://www.frenchartstudio.com/Artist-Detail.cfm?ArtistsID=677'
+  - name: 'MB&F M.A.D GALLERY'
+    emoji: '🇨🇭'
+    city: 'Geneva, CH'
+    url: 'https://www.madgallery.net/geneva/en/creators/manolo-chretien-nose-art?fbclid=IwAR15R8YPJS1-GtpthIukOolkx8PTDy7iDQ0RSzktZc_piFTaClVEurS-zbo'
+  - name: MB&F M.A.D GALLERY
+    city: 'Dubai, AE'
+    emoji: '🇦🇪'
+    url: https://www.madgallery.net/dubai/en/creators/manolo-chretien-nose-art🇦🇪
+  - name: MB&F M.A.D GALLERY
+    city: Taipei, TPE
+    emoji: '🇹🇼'
+    url: https://www.madgallery.net/taipei/zh
+  - name: Galerie Leroyer
+    city: Montréal, CA
+    url: http://www.galerieleroyer.com/artists/manolo-chrtien
+    emoji: '🇨🇦'
+  - name: Red Sea Gallery
+    city: Singapore
+    emoji: '🇸🇬'
+    url: http://www.redseagallery.com/artists/manolo-chrtien
+
+
+
 artworks:
+  - slug: 'beech-18'
+    category: 'nez'
+    title: Beech 18
+    year: 1937
+    description: |
+      The Beechcraft Model 18 is a 6- to 11-seat, twin-engined, low-wing, tailwheel light aircraft manufactured by the Beech Aircraft Corporation of Wichita, Kansas. Continuously produced from 1937 to November 1969 (over 32 years, a world record at the time), over 9,000 were built, making it one of the world's most widely used light aircraft.
+
+      _Le Beechcraft Model 18 est un bimoteur de transport léger américain développé durant l'Entre-deux-guerres. Produit en très grande série durant la Seconde Guerre mondiale comme avion de transport mais aussi d'entrainement, il a connu une très longue carrière, les derniers exemplaires sortant d'usine en 1969._
+
   - slug: 'black-747'
     category: 'nez'
     title: 747

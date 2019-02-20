@@ -5,7 +5,7 @@
   </nuxt-link>
   <div :class='{menu: true, active: true}'>
     <a class='button' href='https://www.gadcollection.com/fr/28-manolo-chretien' target='_blank'>
-      <span>Shop</span>
+      <span>Buy</span>
        <shopping-cart-icon></shopping-cart-icon>
      </a>
     <a class='index button' @click='goToRandomArtwork' v-if='this.$nuxt._route.params.hasOwnProperty("category")' >
