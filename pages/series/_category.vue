@@ -17,9 +17,10 @@ import data from '~/assets/data.yml'
 import ArtworkItem from '~/components/ArtworkItem'
 import Container from '~/components/Container'
 import Grid from '~/components/Grid'
+import FooterItem from '~/components/Footer'
 
 export default {
-  components: { ArtworkItem, Container, Grid },
+  components: { ArtworkItem, Container, Grid, Footer },
   asyncData ({ params, store, isDev }) {
     return {
       category: params.category,

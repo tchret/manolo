@@ -20,6 +20,7 @@
     </div>
     <grid :category="'nez'"></grid>
 
+    <footer-item></footer-item>
   </div>
 </template>
 
@@ -31,10 +32,11 @@ import Separator from '~/components/Separator'
 import Grid from '~/components/Grid'
 import Messenger from '~/components/Icon/Messenger'
 import { SendIcon } from 'vue-feather-icons'
+import FooterItem from '~/components/Footer'
 
 export default {
   components: {
-    Container, CategoryItem, Separator, Grid, Messenger, SendIcon
+    Container, CategoryItem, Separator, Grid, Messenger, SendIcon, FooterItem
   },
   asyncData({params, isDev, store}) {
     store.commit('setProduction', !isDev)

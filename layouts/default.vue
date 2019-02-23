@@ -2,15 +2,13 @@
   <div class='site'>
     <navbar></navbar>
     <nuxt/>
-    <footer-item></footer-item>
   </div>
 </template>
 
 <script>
   import Navbar from '../components/Navbar'
-  import FooterItem from '../components/Footer'
   export default {
-    components: { Navbar, FooterItem }
+    components: { Navbar }
   }
 </script>
 
