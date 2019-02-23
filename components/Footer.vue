@@ -1,5 +1,5 @@
 <template>
-  <div class='footer'>
+  <div class='footer' v-if='allowed'>
     <div class='title'>
     </div>
     <h2>Galleries</h2>
@@ -39,6 +39,11 @@
     },
     components: {
       Container
+    },
+    computed: {
+      allowed() {
+        return this.$nuxt._route.name != 'artworks-slug'
+      }
     }
   }
 </script>
