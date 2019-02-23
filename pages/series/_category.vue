@@ -20,7 +20,7 @@ import Grid from '~/components/Grid'
 import FooterItem from '~/components/Footer'
 
 export default {
-  components: { ArtworkItem, Container, Grid, Footer },
+  components: { ArtworkItem, Container, Grid, FooterItem },
   asyncData ({ params, store, isDev }) {
     return {
       category: params.category,
